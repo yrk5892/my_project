@@ -9,9 +9,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import PyPDFLoader
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# Load API Key from Streamlit Secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 if not openai_api_key:
     st.error("❌ Missing OpenAI API Key! Set OPENAI_API_KEY in your .env file.")
